@@ -13,11 +13,18 @@ const layoutTitle = `Full Print | ${title}`;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Full Print Homepage" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/logo.png" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{layoutTitle}</title>
+		<meta name="description" content="Full Print Website" />
+		<meta name="author" content="Vicente Ferrer" />
+		<meta name="generator" content={Astro.generator} />
+
+		<meta property="og:title" content="Full Print, tu lugar de impresión" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="" />
+		<meta property="og:url" content="" />
+
+		<link rel="shorcut icon" type="image/webp" href="/favicon.webp" />
 	</head>
 	<body>
 		<Header />
@@ -48,6 +55,7 @@ const layoutTitle = `Full Print | ${title}`;
 		background: #13151a;
 		background-size: 224px;
 	}
+
 	code {
 		font-family:
 			Menlo,
@@ -58,5 +66,11 @@ const layoutTitle = `Full Print | ${title}`;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+	body {
+		width: 100vw;
+		display: grid;
+		grid-template-columns: auto 1fr auto;
 	}
 </style>

@@ -4,33 +4,71 @@ interface Props {}
 
 <header>
     <a href="/">
-        <img src="/logo.png" alt="Full Print logo" />
+        <figure>
+            <img
+                src="/logo.webp"
+                alt="Full Print logo"
+                width="150"
+                height="150"
+            />
+            <figcaption>
+                <h1>Full Print</h1>
+            </figcaption>
+        </figure>
     </a>
     <nav>
         <a href="/" class="nav-link">Inicio</a>
         <a href="#" class="nav-link">Servicios</a>
-        <a href="/productos" class="nav-link">Productos</a>
+        <a href="/products" class="nav-link">Productos</a>
+        <a href="/contact" class="nav-link">Contáctanos</a>
     </nav>
 </header>
 <style>
     header,
+    figure,
     nav {
         display: flex;
         align-items: center;
     }
 
     header {
+        grid-column: 1 / 4;
+        width: 100vw;
         justify-content: space-between;
         background-color: #130c0d;
-        padding: 0 1rem 0 2rem;
+        padding-left: 1rem;
     }
 
-    header img {
-        width: calc(368px / 6);
+    a:has(figure) {
+        text-decoration: none;
+    }
+
+    figure {
+        gap: 0.75rem;
+
+        & img {
+            width: calc(368px / 6);
+            height: auto;
+        }
+    }
+
+    figcaption {
+        & h1 {
+            color: white;
+            text-decoration: none;
+        }
     }
 
     nav {
         justify-content: space-around;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    #menu::before {
+        content: "☰";
     }
 
     .nav-link {
@@ -55,6 +93,10 @@ interface Props {}
 
         &:nth-of-type(3):hover {
             background-color: #e00b80;
+        }
+
+        &:nth-of-type(4):hover {
+            background-color: #29b2d4;
         }
     }
 </style>

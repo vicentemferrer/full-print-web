@@ -1,50 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 ---
 
 <Layout title="Inicio">
-	<div id="hero">
-		<div id="image-container">
-			<img src="/prints.png" alt="Impresiones" id="hero-img" />
-		</div>
-		<div id="hero-text">
+	<div class="hero">
+		<picture>
+			<source media="(min-width: 1440px)" srcset="hero-hq.webp" />
+			<source media="(min-width: 1024px)" srcset="hero-large.webp" />
+			<source media="(min-width: 768px)" srcset="hero-medium.webp" />
+			<img src="/hero-small.webp" alt="Full Print store" />
+		</picture>
+		<div class="content">
 			<h1>Ponte cómodo, crea, divierte e imprime</h1>
-			<a href="https://wa.link/i0l5cf" target="_blank">¡Reserva YA!</a>
+			<a href="/contact">¡Reserva YA!</a>
+			<!-- https://wa.link/i0l5cf -->
 		</div>
 	</div>
 </Layout>
 
 <style>
-	#hero {
+	.hero {
 		grid-column: 1 / 4;
 		display: grid;
 		place-items: center;
-	}
 
-	#image-container,
-	#hero-text {
-		grid-column: 1 / 2;
-		grid-row: 1 / 2;
-		width: 100%;
-	}
+		& picture,
+		& .content {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			width: 100%;
+		}
 
-	#image-container {
-		z-index: -1;
-	}
+		& img {
+			width: 100vw;
+			z-index: -1;
+		}
 
-	#hero-img {
-		width: 100vw;
-		height: 50vh;
-		object-fit: cover;
-		filter: blur(5px);
-		z-index: -1;
-	}
-
-	#hero-text {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
+		& .content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
 	}
 </style>

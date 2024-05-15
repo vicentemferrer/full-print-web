@@ -9,16 +9,40 @@
             />
             <figcaption>
                 <h1>Full Print</h1>
+                <p>Tu lugar de impresión</p>
             </figcaption>
         </figure>
     </a>
     <a href="#" id="menu"><i class="fi fi-br-menu-burger"></i></a>
     <nav>
         <div class="nav-list">
-            <a href="/">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="/products">Productos</a>
-            <a href="/contact">Contáctanos</a>
+            <a href="/" class="nav-link">Inicio</a>
+            <div class="nav-link">
+                <a href="#">Servicios</a>
+                <ul>
+                    <li>
+                        <a href="/services/docs"> Impresión de Documentos </a>
+                    </li>
+                    <li>
+                        <a href="/services/pictures">
+                            Impresión de Fotografías
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services/marketing">
+                            Herramientas de Publicidad
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services/design"> Diseño Gráfico </a>
+                    </li>
+                    <li>
+                        <a href="/services/miscelaneous"> Otros Servicios </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="/products" class="nav-link">Productos</a>
+            <a href="/contact" class="nav-link">Contáctanos</a>
         </div>
     </nav>
 </header>
@@ -67,9 +91,9 @@
     }
 
     figure {
-        padding-block: 1rem;
+        padding-block: 0.75rem;
 
-        gap: 0.6rem;
+        gap: 0.4rem;
 
         & img {
             width: calc(368px / 9);
@@ -77,8 +101,16 @@
         }
 
         & figcaption {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
             & h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+
+            & p {
+                font-size: smaller;
             }
         }
     }
@@ -92,7 +124,19 @@
         width: 100vw;
         height: 100vh;
 
-        background-color: #130c0d7f;
+        transform: translateX(100vw);
+        transition:
+            visibility 200ms ease,
+            transform 275ms linear;
+
+        &.open {
+            visibility: visible;
+            transform: translateX(0vw);
+
+            & .nav-list {
+                box-shadow: 0 0 0 100vmax #130c0d7f;
+            }
+        }
 
         & .nav-list {
             float: right;
@@ -103,41 +147,39 @@
             padding-top: 4rem;
 
             background-color: #130c0d;
+            box-shadow: 0 0 0 0 transparent;
+            transition: box-shadow 250ms linear;
 
             display: flex;
             flex-direction: column;
 
-            & a {
+            & .nav-link {
                 font-weight: 600;
 
                 padding: 0.75rem 3rem;
-                transition: background-color ease-in-out 0.2s;
+                transition: background-color ease-in-out 200ms;
 
                 &:hover {
                     text-shadow: 1px 1px 3px #130c0d;
                 }
 
-                &:nth-of-type(1):hover {
+                &:nth-child(1):hover {
                     background-color: #ffe000;
                 }
 
-                &:nth-of-type(2):hover {
+                &:nth-child(2):hover {
                     background-color: #29b2d4;
                 }
 
-                &:nth-of-type(3):hover {
+                &:nth-child(3):hover {
                     background-color: #e00b80;
                 }
 
-                &:nth-of-type(4):hover {
+                &:nth-child(4):hover {
                     background-color: coral;
                 }
             }
         }
-    }
-
-    nav.open {
-        visibility: visible;
     }
 
     @media (767px < width) {
@@ -157,8 +199,6 @@
             width: fit-content;
             height: auto;
 
-            background-color: none;
-
             & .nav-list {
                 float: none;
 
@@ -168,10 +208,11 @@
                 padding-top: 0;
 
                 background-color: none;
+                box-shadow: none;
 
                 flex-direction: row;
 
-                & a {
+                & .nav-link {
                     padding: 1.6rem 2rem;
                 }
             }

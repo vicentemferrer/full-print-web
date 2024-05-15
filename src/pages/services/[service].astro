@@ -1,0 +1,13 @@
+---
+export function getStaticPaths() {
+    return [
+        { params: { service: "docs" } },
+        { params: { service: "pictures" } },
+        { params: { service: "marketing" } },
+        { params: { service: "design" } },
+        { params: { service: "miscelaneous" } },
+    ];
+}
+
+const { service } = Astro.params;
+---

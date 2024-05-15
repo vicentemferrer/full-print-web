@@ -1,7 +1,3 @@
----
-interface Props {}
----
-
 <header>
     <a href="/">
         <figure>
@@ -16,89 +12,169 @@ interface Props {}
             </figcaption>
         </figure>
     </a>
+    <a href="#" id="menu"><i class="fi fi-br-menu-burger"></i></a>
     <nav>
-        <a href="/" class="nav-link">Inicio</a>
-        <a href="#" class="nav-link">Servicios</a>
-        <a href="/products" class="nav-link">Productos</a>
-        <a href="/contact" class="nav-link">Contáctanos</a>
+        <div class="nav-list">
+            <a href="/">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="/products">Productos</a>
+            <a href="/contact">Contáctanos</a>
+        </div>
     </nav>
 </header>
+
+<script>
+    const menu = document.getElementById("menu");
+    const nav = document.querySelector("nav");
+
+    menu.addEventListener("click", () => {
+        nav.classList.add("open");
+    });
+
+    nav.addEventListener("click", (e) => {
+        if (nav.classList.contains("open") && !e.target.matches("nav")) {
+            return;
+        }
+
+        nav.classList.remove("open");
+    });
+</script>
+
 <style>
     header,
-    figure,
-    nav {
+    figure {
         display: flex;
         align-items: center;
     }
 
     header {
         grid-column: 1 / 4;
-        width: 100vw;
-        justify-content: space-between;
+        grid-row: 1 / 2;
+
         background-color: #130c0d;
-        padding-left: 1rem;
-    }
+        padding-inline: 1rem;
 
-    a:has(figure) {
-        text-decoration: none;
-    }
+        justify-content: space-between;
 
-    figure {
-        padding-block: 1rem;
-        gap: 0.75rem;
-
-        & img {
-            width: calc(368px / 6);
-            height: auto;
-        }
-    }
-
-    figcaption {
-        & h1 {
+        & a {
             color: white;
             text-decoration: none;
         }
     }
 
+    #menu {
+        font-size: 1.8rem;
+    }
+
+    figure {
+        padding-block: 1rem;
+
+        gap: 0.6rem;
+
+        & img {
+            width: calc(368px / 9);
+            height: auto;
+        }
+
+        & figcaption {
+            & h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
     nav {
-        align-self: stretch;
-        justify-content: space-around;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: #130c0d7f;
+
+        & .nav-list {
+            float: right;
+
+            width: fit-content;
+            height: 100%;
+
+            padding-top: 4rem;
+
+            background-color: #130c0d;
+
+            display: flex;
+            flex-direction: column;
+
+            & a {
+                font-weight: 600;
+
+                padding: 0.75rem 3rem;
+                transition: background-color ease-in-out 0.2s;
+
+                &:hover {
+                    text-shadow: 1px 1px 3px #130c0d;
+                }
+
+                &:nth-of-type(1):hover {
+                    background-color: #ffe000;
+                }
+
+                &:nth-of-type(2):hover {
+                    background-color: #29b2d4;
+                }
+
+                &:nth-of-type(3):hover {
+                    background-color: #e00b80;
+                }
+
+                &:nth-of-type(4):hover {
+                    background-color: coral;
+                }
+            }
+        }
     }
 
-    /* #menu {
-        display: block;
+    nav.open {
+        visibility: visible;
     }
 
-    #menu::before {
-        content: "☰";
-    } */
-
-    .nav-link {
-        padding: 2.15rem 2rem;
-        font-size: 1.15rem;
-        font-weight: 600;
-        text-decoration: none;
-        color: white;
-        transition: background-color ease-in-out 0.2s;
-
-        &:hover {
-            text-shadow: 1px 1px 3px #130c0d;
+    @media (767px < width) {
+        header {
+            padding-right: 0;
         }
 
-        &:nth-of-type(1):hover {
-            background-color: #ffe000;
+        #menu {
+            display: none;
         }
 
-        &:nth-of-type(2):hover {
-            background-color: #29b2d4;
-        }
+        nav,
+        nav.open {
+            visibility: visible;
+            position: static;
 
-        &:nth-of-type(3):hover {
-            background-color: #e00b80;
-        }
+            width: fit-content;
+            height: auto;
 
-        &:nth-of-type(4):hover {
-            background-color: coral;
+            background-color: none;
+
+            & .nav-list {
+                float: none;
+
+                width: fit-content;
+                height: 100%;
+
+                padding-top: 0;
+
+                background-color: none;
+
+                flex-direction: row;
+
+                & a {
+                    padding: 1.6rem 2rem;
+                }
+            }
         }
     }
 </style>

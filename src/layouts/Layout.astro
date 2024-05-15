@@ -1,20 +1,15 @@
 ---
 import Header from "../components/Header.astro";
 
-interface Props {
-	title: string;
-}
-
 const { title } = Astro.props;
-const layoutTitle = `Full Print | ${title}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-		<title>{layoutTitle}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{`Full Print | ${title}`}</title>
 		<meta name="description" content="Full Print Website" />
 		<meta name="author" content="Vicente Ferrer" />
 		<meta name="generator" content={Astro.generator} />
@@ -31,7 +26,10 @@ const layoutTitle = `Full Print | ${title}`;
 		<slot />
 	</body>
 </html>
+
 <style is:global>
+	@import "@flaticon/flaticon-uicons/css/all/all.css";
+
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;

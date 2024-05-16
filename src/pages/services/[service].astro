@@ -1,4 +1,6 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+
 export function getStaticPaths() {
     return [
         { params: { service: "docs" } },
@@ -11,3 +13,7 @@ export function getStaticPaths() {
 
 const { service } = Astro.params;
 ---
+
+<Layout title="Servicios">
+    <div></div>
+</Layout>

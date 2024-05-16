@@ -3,33 +3,47 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Inicio">
-	<div class="hero">
-		<picture>
-			<source
-				media="(min-width: 1440px)"
-				srcset="/full-print-web/hero-hq.webp"
-			/>
-			<source
-				media="(min-width: 1024px)"
-				srcset="/full-print-web/hero-large.webp"
-			/>
-			<source
-				media="(min-width: 768px)"
-				srcset="/full-print-web/hero-medium.webp"
-			/>
-			<img src="/full-print-web/hero-small.webp" alt="Full Print store" />
-		</picture>
-		<div class="content">
-			<h2>Ponte cómodo, crea, divierte e imprime</h2>
-			<a href="/full-print-web/contact">¡Reserva YA!</a>
-			<!-- https://wa.link/i0l5cf -->
+	<main>
+		<div class="hero">
+			<picture>
+				<source
+					media="(min-width: 1440px)"
+					srcset="/full-print-web/hero-hq.webp"
+				/>
+				<source
+					media="(min-width: 1024px)"
+					srcset="/full-print-web/hero-large.webp"
+				/>
+				<source
+					media="(min-width: 768px)"
+					srcset="/full-print-web/hero-medium.webp"
+				/>
+				<img
+					src="/full-print-web/hero-small.webp"
+					alt="Full Print store"
+				/>
+			</picture>
+			<div class="content">
+				<h2>Ponte cómodo, crea, divierte e imprime</h2>
+				<a href="/full-print-web/contact">¡Reserva YA!</a>
+				<!-- https://wa.link/i0l5cf -->
+			</div>
 		</div>
-	</div>
+	</main>
 </Layout>
 
 <style>
+	main {
+		grid-column: 1 / 4;
+		grid-row: 2 / 3;
+
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+	}
+
 	.hero {
 		grid-column: 1 / 4;
+
 		display: grid;
 		place-items: center;
 

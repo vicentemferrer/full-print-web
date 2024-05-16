@@ -25,6 +25,15 @@ const { title } = Astro.props;
 			type="image/webp"
 			href="/full-print-web/images/favicon.webp"
 		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/2.3.0/uicons-brands/css/uicons-brands.css"
+		/>
 	</head>
 	<body>
 		<Header />
@@ -34,9 +43,6 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-	@import url("https://cdn-uicons.flaticon.com/2.3.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
-	@import url("https://cdn-uicons.flaticon.com/2.3.0/uicons-brands/css/uicons-brands.css");
-
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;

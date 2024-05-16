@@ -96,29 +96,34 @@ import Logo from "./Logo.astro";
         background-color: #130c0d;
 
         display: grid;
-        grid-template-columns: 100px 1fr 100px 1fr 100px 1fr 100px;
 
         & a {
             color: white;
             text-decoration: none;
         }
+    }
 
-        & section:not(.copyright) {
-            grid-column-end: span 1;
+    @media (767px < width) {
+        footer {
+            grid-template-columns: 100px 1fr 100px 1fr 100px 1fr 100px;
 
-            &:nth-child(1) {
-                grid-column-start: 2;
-            }
-            &:nth-child(2) {
-                grid-column-start: 4;
-            }
-            &:nth-child(3) {
-                grid-column-start: 6;
-            }
-        }
+            & section:not(.copyright) {
+                grid-column-end: span 1;
 
-        & .copyright {
-            grid-column: 2 / 7;
+                &:nth-child(1) {
+                    grid-column-start: 2;
+                }
+                &:nth-child(2) {
+                    grid-column-start: 4;
+                }
+                &:nth-child(3) {
+                    grid-column-start: 6;
+                }
+            }
+
+            & .copyright {
+                grid-column: 2 / 7;
+            }
         }
     }
 </style>

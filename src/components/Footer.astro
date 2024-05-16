@@ -1,8 +1,92 @@
+---
+import Logo from "./Logo.astro";
+---
+
 <footer>
-    <section></section>
-    <section></section>
-    <section></section>
+    <section class="logo">
+        <!-- <figure>
+            <img
+                src="/full-print-web/images/qr-code.webp"
+                alt="WhatsApp QR"
+                width="150"
+                height="150"
+            />
+            <figcaption>
+                <p>(Escanee para ir a WhatsApp)</p>
+            </figcaption>
+        </figure> -->
+        <Logo type="footer" />
+    </section>
+    <section class="navigation">
+        <ul>
+            <li>
+                <h4>Servicios</h4>
+                <ul>
+                    <li>
+                        <a href="/full-print-web/services/docs">Documentos</a>
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/pictures"
+                            >Fotografías</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/marketing"
+                            >Publicidad</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/design">Diseño</a>
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/miscelaneous">Otros</a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/full-print-web/products"><h4>Productos</h4></a>
+            </li>
+            <li>
+                <a href="/full-print-web/contact"><h4>Contáctanos</h4></a>
+            </li>
+        </ul>
+    </section>
+    <section class="info">
+        <h4>Atención al Cliente - Ventas</h4>
+        <address>
+            <ul>
+                <li>
+                    <a href="https://wa.me/56950443336"
+                        ><i class="fi fi-brands-whatsapp"></i> +569 5044 3336</a
+                    >
+                </li>
+                <li>
+                    <a href="mailto:fullprint.chiloe@gmail.com"
+                        ><i class="fi fi-br-envelope"></i> fullprint.chiloe@gmail.com</a
+                    >
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/E7hHuu4kkBRXfwYWA"
+                        ><i class="fi fi-br-marker"></i> Chacabuco 797, Ancud, Los
+                        Lagos</a
+                    >
+                </li>
+            </ul>
+        </address>
+    </section>
+    <section class="copyright">
+        <p>
+            <i class="fi fi-br-copyright"></i><span id="year"></span> Full Print
+        </p>
+    </section>
 </footer>
+
+<script>
+    const copyrightYear = document.getElementById("year");
+
+    copyrightYear.textContent = new Date().getFullYear().toString();
+</script>
 
 <style>
     footer {
@@ -11,9 +95,30 @@
 
         background-color: #130c0d;
 
+        display: grid;
+        grid-template-columns: 100px 1fr 100px 1fr 100px 1fr 100px;
+
         & a {
             color: white;
             text-decoration: none;
+        }
+
+        & section:not(.copyright) {
+            grid-column-end: span 1;
+
+            &:nth-child(1) {
+                grid-column-start: 2;
+            }
+            &:nth-child(2) {
+                grid-column-start: 4;
+            }
+            &:nth-child(3) {
+                grid-column-start: 6;
+            }
+        }
+
+        & .copyright {
+            grid-column: 2 / 7;
         }
     }
 </style>

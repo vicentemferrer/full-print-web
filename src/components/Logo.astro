@@ -1,0 +1,46 @@
+---
+const { type } = Astro.props;
+---
+
+<figure>
+    <img
+        src="/full-print-web/images/logo.webp"
+        alt="Full Print logo"
+        width="150"
+        height="150"
+    />
+    <figcaption>
+        {type === "header" ? <h1>Full Print</h1> : <h2>Full Print</h2>}
+        <p>Tu lugar de impresión</p>
+    </figcaption>
+</figure>
+
+<style>
+    figure {
+        padding-block: 0.75rem;
+
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        & img {
+            width: calc(368px / 9);
+            height: auto;
+        }
+
+        & figcaption {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            & h1,
+            & h2 {
+                font-size: 1.4rem;
+            }
+
+            & p {
+                font-size: smaller;
+            }
+        }
+    }
+</style>

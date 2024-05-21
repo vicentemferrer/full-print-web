@@ -21,6 +21,7 @@ import Layout from "../layouts/Layout.astro";
 				<img
 					src="/full-print-web/images/hero-small.webp"
 					alt="Full Print store"
+					loading="lazy"
 				/>
 			</picture>
 			<div class="content">
@@ -55,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
 		}
 
 		& img {
-			width: 100vw;
+			width: 100%;
 			z-index: -1;
 		}
 

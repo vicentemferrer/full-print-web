@@ -3,63 +3,70 @@ import Logo from "./Logo.astro";
 ---
 
 <footer>
-    <section class="logo">
-        <!-- <figure>
-            <img
-                src="/full-print-web/images/qr-code.webp"
-                alt="WhatsApp QR"
-                width="150"
-                height="150"
-            />
-            <figcaption>
-                <p>(Escanee para ir a WhatsApp)</p>
-            </figcaption>
-        </figure> -->
-        <Logo type="footer" />
-    </section>
-    <section class="navigation">
-        <ul>
-            <li>
-                <a href="/full-print-web/about">¿Quiénes somos?</a>
-            </li>
-            <li>
-                <a href="/full-print-web/how-to-buy">¿Cómo comprar?</a>
-            </li>
-            <li>
-                <a href="/full-print-web/contact">Contáctanos</a>
-            </li>
-        </ul>
-    </section>
-    <section class="info">
-        <h4>Atención al Cliente - Ventas</h4>
-        <address>
+    <section class="row info">
+        <article>
+            <Logo type="footer" />
+        </article>
+        <article>
+            <h4>Información</h4>
             <ul>
                 <li>
-                    <a href="https://wa.me/56950443336" target="_blank"
-                        ><i class="fi fi-br-phone-call"></i> +569 5044 3336</a
-                    >
+                    <a href="/full-print-web/about">¿Quiénes somos?</a>
                 </li>
                 <li>
-                    <a href="mailto:fullprint.chiloe@gmail.com" target="_blank"
-                        ><i class="fi fi-br-envelope"></i> fullprint.chiloe@gmail.com</a
-                    >
+                    <a href="/full-print-web/how-to-buy">¿Cómo comprar?</a>
                 </li>
                 <li>
-                    <a
-                        href="https://maps.app.goo.gl/E2bgyVkRNTVgx9eK6"
-                        target="_blank"
-                        ><i class="fi fi-br-marker"></i> Chacabuco 797, Ancud, Los
-                        Lagos</a
-                    >
+                    <a href="/full-print-web/contact">Contáctanos</a>
                 </li>
             </ul>
-        </address>
+        </article>
+        <article>
+            <h4>Contacto</h4>
+            <address>
+                <ul>
+                    <li>
+                        <a href="tel:56950443336" target="_blank"
+                            ><i class="fi fi-br-phone-call"></i> +569 5044 3336</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="mailto:fullprint.chiloe@gmail.com"
+                            target="_blank"
+                            ><i class="fi fi-br-envelope"></i> fullprint.chiloe@gmail.com</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://maps.app.goo.gl/E2bgyVkRNTVgx9eK6"
+                            target="_blank"
+                            ><i class="fi fi-br-marker"></i> Chacabuco 797, Ancud</a
+                        >
+                    </li>
+                </ul>
+            </address>
+        </article>
     </section>
-    <section class="copyright">
-        <p>
-            <i class="fi fi-br-copyright"></i><span id="year"></span> Full Print
-            | Developed by Vicente Ferrer
-        </p>
+    <section class="row credits">
+        <article>
+            <p>
+                <i class="fi fi-br-copyright"></i><span id="year"></span> Full Print
+                | Desarrollado por Vicente Ferrer
+            </p>
+        </article>
+        <article class="social">
+            <a href="https://www.facebook.com/fullprint.chiloe/" target="_blank"
+                ><i class="fi fi-brands-facebook"></i></a
+            >
+            <a
+                href="https://www.instagram.com/fullprint.chiloe/"
+                target="_blank"><i class="fi fi-brands-instagram"></i></a
+            >
+            <a href="https://wa.me/56950443336" target="_blank"
+                ><i class="fi fi-brands-whatsapp"></i></a
+            >
+        </article>
     </section>
 </footer>
 
@@ -77,6 +84,55 @@ import Logo from "./Logo.astro";
         background-color: #130c0d;
 
         display: grid;
+        grid-template-columns: auto 1fr auto;
+
+        & .row {
+            grid-column: 2 / 3;
+
+            &.info {
+                grid-row: 1 / 2;
+
+                display: none;
+            }
+
+            &.credits {
+                grid-row: 2 / 3;
+
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: space-between;
+                align-items: center;
+
+                gap: 1rem;
+
+                padding-block: 1rem;
+
+                & article:not(.social) {
+                    & p {
+                        & i {
+                            font-size: 0.8rem;
+                            margin-right: 0.1rem;
+                        }
+                    }
+                }
+
+                & .social {
+                    width: 40%;
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    & a {
+                        display: block;
+
+                        & i {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
 
         & a {
             color: white;
@@ -86,26 +142,65 @@ import Logo from "./Logo.astro";
 
     @media (767px < width) {
         footer {
-            grid-template-columns: auto 1fr auto 1fr auto 1fr auto;
+            & .row {
+                &.credits {
+                    flex-direction: row;
 
-            & section:not(.copyright) {
-                grid-column-end: span 1;
+                    padding-inline: 1.5rem;
 
-                &:nth-child(1) {
-                    grid-column-start: 2;
-                }
+                    & .social {
+                        width: 20%;
 
-                &:nth-child(2) {
-                    grid-column-start: 4;
-                }
-
-                &:nth-child(3) {
-                    grid-column-start: 6;
+                        & a {
+                            & i {
+                                font-size: 1.25rem;
+                            }
+                        }
+                    }
                 }
             }
+        }
+    }
 
-            & .copyright {
-                grid-column: 2 / 7;
+    @media (1023px < width) {
+        footer {
+            & .row {
+                &.info {
+                    display: grid;
+                    grid-template-columns: repeat(3, 0.1fr 1fr) 0.1fr;
+                    justify-items: center;
+                    align-items: center;
+
+                    padding-block: 1rem;
+
+                    & ul li {
+                        list-style: none;
+                    }
+
+                    & article {
+                        grid-column-end: span 1;
+
+                        &:nth-child(1) {
+                            grid-column-start: 2;
+                        }
+
+                        &:nth-child(2) {
+                            grid-column-start: 4;
+                        }
+
+                        &:nth-child(3) {
+                            grid-column-start: 6;
+                        }
+                    }
+                }
+
+                &.credits {
+                    padding-inline: 10rem;
+
+                    & .social {
+                        width: 20%;
+                    }
+                }
             }
         }
     }

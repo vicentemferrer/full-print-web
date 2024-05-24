@@ -8,36 +8,41 @@ import Logo from "./Logo.astro";
     </a>
     <a href="#" id="menu"><i class="fi fi-br-menu-burger"></i></a>
     <nav>
-        <div class="nav-list">
-            <a href="/full-print-web/" class="nav-link">Inicio</a>
-            <a href="#" class="nav-link" id="services-menu">Servicios</a>
-            <ul>
-                <li>
-                    <a href="/full-print-web/services/docs"
-                        >Impresión de Documentos</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/pictures"
-                        >Impresión de Fotografías</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/marketing"
-                        >Herramientas de Publicidad</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/design">Diseño Gráfico</a>
-                </li>
-                <li>
-                    <a href="/full-print-web/services/miscelaneous"
-                        >Otros Servicios</a
-                    >
-                </li>
-            </ul>
-            <a href="/full-print-web/products" class="nav-link">Productos</a>
-            <!-- <a href="/full-print-web/contact" class="nav-link">Contáctanos</a> -->
+        <div class="nav-fragment">
+            <div class="nav-list">
+                <a href="/full-print-web/" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link" id="services-menu">Servicios</a>
+                <ul>
+                    <li>
+                        <a href="/full-print-web/services/docs"
+                            >Impresión de Documentos</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/pictures"
+                            >Impresión de Fotografías</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/marketing"
+                            >Herramientas de Publicidad</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/design"
+                            >Diseño Gráfico</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/full-print-web/services/miscelaneous"
+                            >Otros Servicios</a
+                        >
+                    </li>
+                </ul>
+                <a href="/full-print-web/products" class="nav-link">Productos</a
+                >
+            </div>
+            <div class="help"></div>
         </div>
     </nav>
 </header>
@@ -93,6 +98,7 @@ import Logo from "./Logo.astro";
         padding-inline: 1rem;
 
         & a {
+            display: block;
             color: white;
             text-decoration: none;
         }
@@ -124,7 +130,7 @@ import Logo from "./Logo.astro";
             }
         }
 
-        & .nav-list {
+        & .nav-fragment {
             float: right;
 
             width: fit-content;
@@ -139,32 +145,42 @@ import Logo from "./Logo.astro";
 
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
 
-            & .nav-link {
-                font-weight: 600;
+            & .nav-list {
+                width: 100%;
 
-                padding: 0.75rem 3rem;
-                transition: background-color ease-in-out 200ms;
+                & .nav-link {
+                    font-weight: 600;
 
-                &:hover {
-                    text-shadow: 1px 1px 3px #130c0d;
+                    padding: 0.75rem 2.5rem;
+                    transition: background-color ease-in-out 200ms;
+
+                    &:hover {
+                        text-shadow: 1px 1px 3px #130c0d;
+                    }
+
+                    &:nth-of-type(1):hover {
+                        background-color: #ffe000;
+                    }
+
+                    &:nth-of-type(2):hover {
+                        background-color: #29b2d4;
+                    }
+
+                    &:nth-of-type(3):hover {
+                        background-color: #e00b80;
+                    }
                 }
+            }
 
-                &:nth-of-type(1):hover {
-                    background-color: #ffe000;
+            & .help {
+                justify-self: flex-end;
+
+                & a {
+                    display: block;
+                    padding: 0.75rem 2.5rem;
                 }
-
-                &:nth-of-type(2):hover {
-                    background-color: #29b2d4;
-                }
-
-                &:nth-of-type(3):hover {
-                    background-color: #e00b80;
-                }
-
-                /* &:nth-of-type(4):hover {
-                    background-color: coral;
-                } */
             }
         }
 
@@ -182,10 +198,12 @@ import Logo from "./Logo.astro";
 
                 & a {
                     display: block;
-                    padding: 0.75rem 2.5rem 0.75rem 4rem;
+                    padding: 0.75rem 3rem;
 
                     font-size: 0.85rem;
                     font-weight: 500;
+
+                    border-left: 3px solid transparent;
 
                     &:hover {
                         border-left: 3px solid white;
@@ -216,10 +234,11 @@ import Logo from "./Logo.astro";
             transform: none;
             transition: none;
 
-            & .nav-list {
+            & .nav-fragment {
                 float: none;
 
                 width: fit-content;
+                max-width: none;
                 height: 100%;
 
                 padding-top: 0;
@@ -228,9 +247,20 @@ import Logo from "./Logo.astro";
                 box-shadow: none;
 
                 flex-direction: row;
+                justify-content: none;
 
-                & .nav-link {
-                    padding: 1.6rem 2rem;
+                & .nav-list {
+                    width: 100%;
+
+                    display: flex;
+
+                    & .nav-link {
+                        padding: 1.6rem 2rem;
+                    }
+                }
+
+                & .help {
+                    display: none;
                 }
             }
 
@@ -246,6 +276,8 @@ import Logo from "./Logo.astro";
                     list-style: none;
 
                     & a {
+                        border-left: none;
+
                         display: block;
                         padding: 1.6rem 2rem;
 

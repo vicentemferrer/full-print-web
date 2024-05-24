@@ -7,7 +7,35 @@ import Logo from "./Logo.astro";
         <article>
             <Logo type="footer" />
         </article>
-        <article>
+        <article class="xtra-nav">
+            <h4>Servicios</h4>
+            <ul>
+                <li>
+                    <a href="/full-print-web/services/docs"
+                        >Impresión de Documentos</a
+                    >
+                </li>
+                <li>
+                    <a href="/full-print-web/services/pictures"
+                        >Impresión de Imágenes</a
+                    >
+                </li>
+                <li>
+                    <a href="/full-print-web/services/marketing"
+                        >Herramientas de Publicidad</a
+                    >
+                </li>
+                <li>
+                    <a href="/full-print-web/services/design">Diseño Gráfico</a>
+                </li>
+                <li>
+                    <a href="/full-print-web/services/miscelaneous"
+                        >Otros Servicios</a
+                    >
+                </li>
+            </ul>
+        </article>
+        <article class="about">
             <h4>Información</h4>
             <ul>
                 <li>
@@ -74,6 +102,29 @@ import Logo from "./Logo.astro";
     const copyrightYear = document.getElementById("year");
 
     copyrightYear.textContent = new Date().getFullYear().toString();
+
+    function rearrangement() {
+        if (window.innerWidth < 767) {
+            const aboutLinks = document.querySelectorAll(".about ul li a");
+            const div = document.querySelector(".help");
+
+            for (const link of aboutLinks) {
+                div.appendChild(link);
+            }
+
+            document.querySelector(".nav-list").appendChild(div);
+        } else {
+            const helpLinks = document.querySelectorAll(".help a");
+            const liPlaceholders = document.querySelectorAll(".about ul li");
+
+            for (let i = 0; i < liPlaceholders.length; i++) {
+                liPlaceholders[i].appendChild(helpLinks[i]);
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", rearrangement);
+    window.addEventListener("resize", rearrangement);
 </script>
 
 <style>
@@ -143,13 +194,39 @@ import Logo from "./Logo.astro";
     @media (767px < width) {
         footer {
             & .row {
+                &.info {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    justify-items: center;
+                    align-items: self-start;
+
+                    grid-auto-flow: column;
+                    grid-auto-columns: 1fr;
+
+                    padding-block: 1rem;
+
+                    & ul li {
+                        list-style: none;
+                    }
+
+                    & .xtra-nav {
+                        display: none;
+                    }
+
+                    & article {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                    }
+                }
+
                 &.credits {
                     flex-direction: row;
 
                     padding-inline: 1.5rem;
 
                     & .social {
-                        width: 20%;
+                        width: 15%;
 
                         & a {
                             & i {
@@ -166,39 +243,16 @@ import Logo from "./Logo.astro";
         footer {
             & .row {
                 &.info {
-                    display: grid;
-                    grid-template-columns: repeat(3, 0.1fr 1fr) 0.1fr;
-                    justify-items: center;
-                    align-items: center;
-
-                    padding-block: 1rem;
-
-                    & ul li {
-                        list-style: none;
-                    }
-
-                    & article {
-                        grid-column-end: span 1;
-
-                        &:nth-child(1) {
-                            grid-column-start: 2;
-                        }
-
-                        &:nth-child(2) {
-                            grid-column-start: 4;
-                        }
-
-                        &:nth-child(3) {
-                            grid-column-start: 6;
-                        }
+                    & .xtra-nav {
+                        display: flex;
                     }
                 }
 
                 &.credits {
-                    padding-inline: 10rem;
+                    padding-inline: 3rem;
 
                     & .social {
-                        width: 20%;
+                        width: 10%;
                     }
                 }
             }

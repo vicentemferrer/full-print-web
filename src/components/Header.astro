@@ -8,42 +8,47 @@ import Logo from "./Logo.astro";
     </a>
     <a href="#" id="menu"><i class="fi fi-br-menu-burger"></i></a>
     <nav>
-        <div class="nav-fragment">
-            <div class="nav-list">
+        <section class="nav-fragment">
+            <section class="nav-list">
                 <a href="/full-print-web/" class="nav-link">Inicio</a>
                 <a href="#" class="nav-link" id="services-menu">Servicios</a>
                 <ul>
                     <li>
-                        <a href="/full-print-web/services/docs"
-                            >Impresión de Documentos</a
-                        >
+                        <a href="/full-print-web/services/docs">
+                            Impresión de Documentos
+                        </a>
                     </li>
                     <li>
-                        <a href="/full-print-web/services/pictures"
-                            >Impresión de Fotografías</a
-                        >
+                        <a href="/full-print-web/services/pictures">
+                            Impresión de Fotografías
+                        </a>
                     </li>
                     <li>
-                        <a href="/full-print-web/services/marketing"
-                            >Herramientas de Publicidad</a
-                        >
+                        <a href="/full-print-web/services/marketing">
+                            Herramientas de Publicidad
+                        </a>
                     </li>
                     <li>
-                        <a href="/full-print-web/services/design"
-                            >Diseño Gráfico</a
-                        >
+                        <a href="/full-print-web/services/design">
+                            Diseño Gráfico
+                        </a>
                     </li>
                     <li>
-                        <a href="/full-print-web/services/miscelaneous"
-                            >Otros Servicios</a
-                        >
+                        <a href="/full-print-web/services/miscelaneous">
+                            Otros Servicios
+                        </a>
                     </li>
                 </ul>
-                <a href="/full-print-web/products" class="nav-link">Productos</a
-                >
-            </div>
-            <div class="help"></div>
-        </div>
+                <a href="/full-print-web/products" class="nav-link">
+                    Productos
+                </a>
+            </section>
+            <section class="help">
+                <a href="/full-print-web/about">¿Quiénes somos?</a>
+                <a href="/full-print-web/how-to-buy">¿Cómo comprar?</a>
+                <a href="/full-print-web/contact">Contáctanos</a>
+            </section>
+        </section>
     </nav>
 </header>
 
@@ -175,11 +180,17 @@ import Logo from "./Logo.astro";
             }
 
             & .help {
-                justify-self: flex-end;
+                padding-block: 1rem;
+
+                background-color: #5557;
 
                 & a {
                     display: block;
-                    padding: 0.75rem 2.5rem;
+                    padding: 0.75rem 2rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

@@ -49,7 +49,7 @@ import Logo from "./Logo.astro";
                 </li>
             </ul>
         </article>
-        <article>
+        <article class="contact">
             <h4>Contacto</h4>
             <address>
                 <ul>
@@ -102,29 +102,6 @@ import Logo from "./Logo.astro";
     const copyrightYear = document.getElementById("year");
 
     copyrightYear.textContent = new Date().getFullYear().toString();
-
-    function rearrangement() {
-        if (window.innerWidth < 767) {
-            const aboutLinks = document.querySelectorAll(".about ul li a");
-            const div = document.querySelector(".help");
-
-            for (const link of aboutLinks) {
-                div.appendChild(link);
-            }
-
-            document.querySelector(".nav-list").appendChild(div);
-        } else {
-            const helpLinks = document.querySelectorAll(".help a");
-            const liPlaceholders = document.querySelectorAll(".about ul li");
-
-            for (let i = 0; i < liPlaceholders.length; i++) {
-                liPlaceholders[i].appendChild(helpLinks[i]);
-            }
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", rearrangement);
-    window.addEventListener("resize", rearrangement);
 </script>
 
 <style>
@@ -168,7 +145,9 @@ import Logo from "./Logo.astro";
                 }
 
                 & .social {
-                    width: 40%;
+                    width: 40vw;
+
+                    gap: 1rem;
 
                     display: flex;
                     flex-direction: row;
@@ -179,6 +158,33 @@ import Logo from "./Logo.astro";
 
                         & i {
                             font-size: 1.5rem;
+                        }
+
+                        &:nth-child(1) {
+                            text-shadow: 0.5px 0.5px 1px steelblue;
+
+                            &:hover {
+                                color: steelblue;
+                                text-shadow: 0.5px 0.5px 1px white;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            text-shadow: 0.5px 0.5px 1px #dd2a7b;
+
+                            &:hover {
+                                color: #dd2a7b;
+                                text-shadow: 0.5px 0.5px 1px white;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            text-shadow: 0.5px 0.5px 1px #25d366;
+
+                            &:hover {
+                                color: #25d366;
+                                text-shadow: 0.5px 0.5px 1px white;
+                            }
                         }
                     }
                 }
@@ -207,16 +213,36 @@ import Logo from "./Logo.astro";
 
                     & ul li {
                         list-style: none;
+                        margin-block: 0.1rem;
                     }
 
                     & .xtra-nav {
                         display: none;
                     }
 
+                    & .contact {
+                        & address {
+                            font-style: normal;
+                        }
+
+                        & a {
+                            &:hover {
+                            }
+                        }
+                    }
+
                     & article {
                         display: flex;
                         flex-direction: column;
                         gap: 0.5rem;
+
+                        &:not(.contact) {
+                            & a {
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -226,7 +252,7 @@ import Logo from "./Logo.astro";
                     padding-inline: 1.5rem;
 
                     & .social {
-                        width: 15%;
+                        width: 12vw;
 
                         & a {
                             & i {
@@ -252,7 +278,9 @@ import Logo from "./Logo.astro";
                     padding-inline: 3rem;
 
                     & .social {
-                        width: 10%;
+                        width: 10vw;
+
+                        gap: 2rem;
                     }
                 }
             }

@@ -9,40 +9,48 @@ import Logo from "./Logo.astro";
     <a href="#" id="menu"><i class="fi fi-br-menu-burger"></i></a>
     <nav>
         <section class="nav-fragment">
-            <section class="nav-list">
-                <a href="/full-print-web/" class="nav-link">Inicio</a>
-                <a href="#" class="nav-link" id="services-menu">Servicios</a>
-                <ul>
-                    <li>
-                        <a href="/full-print-web/services/docs">
-                            Impresión de Documentos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/full-print-web/services/pictures">
-                            Impresión de Fotografías
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/full-print-web/services/marketing">
-                            Herramientas de Publicidad
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/full-print-web/services/design">
-                            Diseño Gráfico
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/full-print-web/services/miscelaneous">
-                            Otros Servicios
-                        </a>
-                    </li>
-                </ul>
-                <a href="/full-print-web/products" class="nav-link">
-                    Productos
-                </a>
-            </section>
+            <ul class="nav-list">
+                <li>
+                    <a href="/full-print-web/" class="nav-link">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#" class="nav-link" id="service-btn">Servicios</a>
+                    <ul id="service-menu">
+                        <li>
+                            <a href="/full-print-web/services/docs">
+                                Impresión de Documentos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/full-print-web/services/pictures">
+                                Impresión de Fotografías
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/full-print-web/services/marketing">
+                                Herramientas de Publicidad
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/full-print-web/services/design">
+                                Diseño Gráfico
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/full-print-web/services/miscelaneous">
+                                Otros Servicios
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/full-print-web/products" class="nav-link">
+                        Productos
+                    </a>
+                </li>
+            </ul>
             <section class="help">
                 <a href="/full-print-web/about">¿Quiénes somos?</a>
                 <a href="/full-print-web/how-to-buy">¿Cómo comprar?</a>
@@ -55,12 +63,12 @@ import Logo from "./Logo.astro";
 <script>
     const menu = document.getElementById("menu");
     const nav = document.querySelector("nav");
-    const servicesLink = document.getElementById("services-menu");
-    const servicesList = document.querySelector("nav .nav-list ul");
+    const serviceBtn = document.getElementById("service-btn");
+    const serviceMenu = document.getElementById("service-menu");
 
     const closeServiceList = (e) => {
-        if (!e.target.matches("#services-menu")) {
-            servicesList.classList.remove("open");
+        if (!e.target.matches("#service-btn")) {
+            serviceMenu.classList.remove("open");
         }
     };
 
@@ -76,14 +84,14 @@ import Logo from "./Logo.astro";
         nav.classList.remove("open");
     });
 
-    servicesLink.addEventListener("click", () => {
-        servicesList.classList.toggle("open");
+    serviceBtn.addEventListener("click", () => {
+        serviceMenu.classList.toggle("open");
     });
 
     document.addEventListener("click", closeServiceList);
 
     document.addEventListener("mouseover", (e) => {
-        if (!e.target.matches(".nav-list ul li a")) {
+        if (!e.target.matches("#service-menu li a")) {
             closeServiceList(e);
         }
     });
@@ -152,29 +160,65 @@ import Logo from "./Logo.astro";
             flex-direction: column;
             justify-content: space-between;
 
+            & ul li {
+                list-style: none;
+            }
+
             & .nav-list {
                 width: 100%;
 
-                & .nav-link {
-                    font-weight: 600;
+                & li {
+                    position: relative;
 
-                    padding: 0.75rem 2.5rem;
-                    transition: background-color ease-in-out 200ms;
-
-                    &:hover {
-                        text-shadow: 1px 1px 3px #130c0d;
-                    }
-
-                    &:nth-of-type(1):hover {
+                    &:nth-child(1) .nav-link:hover {
                         background-color: #ffe000;
                     }
 
-                    &:nth-of-type(2):hover {
+                    &:nth-child(2) .nav-link:hover {
                         background-color: #29b2d4;
                     }
 
-                    &:nth-of-type(3):hover {
+                    &:nth-child(3) .nav-link:hover {
                         background-color: #e00b80;
+                    }
+
+                    & .nav-link {
+                        font-weight: 600;
+
+                        padding: 0.75rem 2.5rem;
+                        transition: background-color ease-in-out 200ms;
+
+                        &:hover {
+                            text-shadow: 1px 1px 3px #130c0d;
+                        }
+                    }
+
+                    & #service-menu {
+                        overflow: hidden;
+                        height: 0;
+
+                        &.open {
+                            height: auto;
+                        }
+
+                        & li {
+                            width: auto;
+
+                            & a {
+                                display: block;
+                                padding: 0.75rem 3rem;
+
+                                font-size: 0.85rem;
+                                font-weight: 500;
+
+                                border-left: 3px solid transparent;
+
+                                &:hover {
+                                    border-left: 3px solid white;
+                                    background-color: #7777;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -190,35 +234,6 @@ import Logo from "./Logo.astro";
 
                     &:hover {
                         text-decoration: underline;
-                    }
-                }
-            }
-        }
-
-        & ul {
-            overflow: hidden;
-            height: 0;
-
-            &.open {
-                height: auto;
-            }
-
-            & li {
-                width: auto;
-                list-style: none;
-
-                & a {
-                    display: block;
-                    padding: 0.75rem 3rem;
-
-                    font-size: 0.85rem;
-                    font-weight: 500;
-
-                    border-left: 3px solid transparent;
-
-                    &:hover {
-                        border-left: 3px solid white;
-                        background-color: #7777;
                     }
                 }
             }
@@ -258,44 +273,45 @@ import Logo from "./Logo.astro";
                 box-shadow: none;
 
                 flex-direction: row;
-                justify-content: none;
 
                 & .nav-list {
                     width: 100%;
 
                     display: flex;
+                    align-items: stretch;
 
-                    & .nav-link {
-                        padding: 1.6rem 2rem;
+                    & li {
+                        & .nav-link {
+                            padding: 1.6rem 2rem;
+                        }
+
+                        & #service-menu {
+                            position: absolute;
+
+                            background-color: #130c0d;
+
+                            & li {
+                                width: auto;
+                                list-style: none;
+
+                                & a {
+                                    border-left: none;
+                                    text-align: center;
+
+                                    display: block;
+                                    padding: 1rem;
+
+                                    &:hover {
+                                        border-left: none;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
                 & .help {
                     display: none;
-                }
-            }
-
-            & ul {
-                position: absolute;
-                top: 4.54rem;
-                right: 11.6rem;
-
-                background-color: #130c0d;
-
-                & li {
-                    width: auto;
-                    list-style: none;
-
-                    & a {
-                        border-left: none;
-
-                        display: block;
-                        padding: 1.6rem 2rem;
-
-                        &:hover {
-                            border-left: none;
-                        }
-                    }
                 }
             }
         }

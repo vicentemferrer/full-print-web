@@ -1,5 +1,7 @@
 ---
 import Logo from "./Logo.astro";
+
+const currentYear = new Date().getFullYear().toString();
 ---
 
 <footer>
@@ -79,8 +81,8 @@ import Logo from "./Logo.astro";
     <section class="row credits">
         <article>
             <p>
-                <i class="fi fi-br-copyright"></i><span id="year"></span> Full Print
-                | Desarrollado por Vicente Ferrer
+                <i class="fi fi-br-copyright"></i>{currentYear} Full Print | Desarrollado
+                por Vicente Ferrer
             </p>
         </article>
         <article class="social">
@@ -97,12 +99,6 @@ import Logo from "./Logo.astro";
         </article>
     </section>
 </footer>
-
-<script>
-    const copyrightYear = document.getElementById("year");
-
-    copyrightYear.textContent = new Date().getFullYear().toString();
-</script>
 
 <style>
     footer {
@@ -160,31 +156,16 @@ import Logo from "./Logo.astro";
                             font-size: 1.5rem;
                         }
 
-                        &:nth-child(1) {
-                            text-shadow: 0.5px 0.5px 1px steelblue;
-
-                            &:hover {
-                                color: steelblue;
-                                text-shadow: 0.5px 0.5px 1px white;
-                            }
+                        &:nth-child(1):hover {
+                            color: steelblue;
                         }
 
-                        &:nth-child(2) {
-                            text-shadow: 0.5px 0.5px 1px #dd2a7b;
-
-                            &:hover {
-                                color: #dd2a7b;
-                                text-shadow: 0.5px 0.5px 1px white;
-                            }
+                        &:nth-child(2):hover {
+                            color: #dd2a7b;
                         }
 
-                        &:nth-child(3) {
-                            text-shadow: 0.5px 0.5px 1px #25d366;
-
-                            &:hover {
-                                color: #25d366;
-                                text-shadow: 0.5px 0.5px 1px white;
-                            }
+                        &:nth-child(3):hover {
+                            color: #25d366;
                         }
                     }
                 }

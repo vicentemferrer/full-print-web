@@ -101,11 +101,19 @@ const currentYear = new Date().getFullYear().toString();
 </footer>
 
 <style>
+    /* Mobile-first Layout */
+
     footer {
         grid-column: 1 / 4;
         grid-row: 3 / 4;
 
-        background-color: #130c0d;
+        background-color: var(--primary-dark-color);
+        background: linear-gradient(
+            45deg,
+            var(--gradient-color-1) 24%,
+            var(--gradient-color-2) 41% 57%,
+            var(--gradient-color-3) 75%
+        );
 
         display: grid;
         grid-template-columns: auto 1fr auto;
@@ -177,6 +185,8 @@ const currentYear = new Date().getFullYear().toString();
             text-decoration: none;
         }
     }
+
+    /* Larger Screens Adaptations */
 
     @media (767px < width) {
         footer {

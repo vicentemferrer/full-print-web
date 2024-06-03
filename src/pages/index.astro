@@ -1,34 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Inicio">
 	<main>
-		<div class="hero">
-			<picture>
-				<source
-					media="(min-width: 1440px)"
-					srcset="/full-print-web/images/hero-hq.webp"
-				/>
-				<source
-					media="(min-width: 1024px)"
-					srcset="/full-print-web/images/hero-large.webp"
-				/>
-				<source
-					media="(min-width: 768px)"
-					srcset="/full-print-web/images/hero-medium.webp"
-				/>
-				<img
-					src="/full-print-web/images/hero-small.webp"
-					alt="Full Print store"
-					loading="lazy"
-				/>
-			</picture>
-			<div class="content">
-				<h2>Entregando color a la Isla</h2>
-				<a href="/full-print-web/contact">¡Reserva YA!</a>
-			</div>
-		</div>
+		<Hero />
 	</main>
 </Layout>
 
@@ -39,31 +16,5 @@ import Layout from "../layouts/Layout.astro";
 
 		display: grid;
 		grid-template-columns: auto 1fr auto;
-	}
-
-	.hero {
-		grid-column: 1 / 4;
-
-		display: grid;
-		place-items: center;
-
-		& picture,
-		& .content {
-			grid-column: 1 / 2;
-			grid-row: 1 / 2;
-			width: 100%;
-		}
-
-		& img {
-			width: 100%;
-			z-index: -1;
-		}
-
-		& .content {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
 	}
 </style>

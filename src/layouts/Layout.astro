@@ -44,15 +44,27 @@ const { title } = Astro.props;
 
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		/* Full Print Color Palette */
+		--primary-dark-color: #262626;
+
+		--accent1-light-color: #df5ca5;
+		--accent1-main-color: #dd258c;
+		--accent1-dark-color: #ac1e6e;
+		--accent2-light-color: #ffec89;
+		--accent2-main-color: #fff016;
+		--accent2-dark-color: #d7ad23;
+		--accent3-light-color: #53c2df;
+		--accent3-main-color: #20a2c4;
+		--accent3-dark-color: #065569;
+
+		/* Linear Gradient Colors */
+		--gradient-color-1: var(--accent1-dark-color);
+		--gradient-color-2: var(--accent2-dark-color);
+		--gradient-color-3: var(--accent3-dark-color);
+
+		/* Shadows */
+		--darkest-full-shadow-color: #130c0d;
+		--darkest-half-shadow-color: #130c0d7f;
 	}
 
 	* {

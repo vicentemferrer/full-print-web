@@ -98,11 +98,19 @@ import Logo from "./Logo.astro";
 </script>
 
 <style>
+    /* Mobile-first Layout */
+
     header {
         grid-column: 1 / 4;
         grid-row: 1 / 2;
 
-        background-color: #130c0d;
+        background-color: var(--primary-dark-color);
+        /* background: linear-gradient(
+            45deg,
+            var(--gradient-color-1) 24%,
+            var(--gradient-color-2) 41% 57%,
+            var(--gradient-color-3) 75%
+        ); */
 
         display: flex;
         align-items: center;
@@ -138,8 +146,8 @@ import Logo from "./Logo.astro";
             visibility: visible;
             transform: translateX(-100vw);
 
-            & .nav-list {
-                box-shadow: 0 0 0 100vmax #130c0d7f;
+            & .nav-fragment {
+                box-shadow: 0 0 0 100vmax var(--darkest-half-shadow-color);
             }
         }
 
@@ -152,7 +160,7 @@ import Logo from "./Logo.astro";
 
             padding-top: 4rem;
 
-            background-color: #130c0d;
+            background-color: var(--primary-dark-color);
             box-shadow: 0 0 0 0 transparent;
             transition: box-shadow 250ms linear;
 
@@ -171,15 +179,15 @@ import Logo from "./Logo.astro";
                     position: relative;
 
                     &:nth-child(1) .nav-link:hover {
-                        background-color: #ffe000;
+                        background-color: var(--accent2-main-color);
                     }
 
                     &:nth-child(2) .nav-link:hover {
-                        background-color: #29b2d4;
+                        background-color: var(--accent3-main-color);
                     }
 
                     &:nth-child(3) .nav-link:hover {
-                        background-color: #e00b80;
+                        background-color: var(--accent1-main-color);
                     }
 
                     & .nav-link {
@@ -189,7 +197,8 @@ import Logo from "./Logo.astro";
                         transition: background-color ease-in-out 200ms;
 
                         &:hover {
-                            text-shadow: 1px 1px 3px #130c0d;
+                            text-shadow: 1px 1px 3px
+                                var(--darkest-full-shadow-color);
                         }
                     }
 
@@ -240,6 +249,8 @@ import Logo from "./Logo.astro";
         }
     }
 
+    /* Larger Screens Adaptations */
+
     @media (767px < width) {
         header {
             padding-right: 0;
@@ -269,8 +280,8 @@ import Logo from "./Logo.astro";
 
                 padding-top: 0;
 
-                background-color: none;
-                box-shadow: none;
+                background-color: transparent;
+                box-shadow: 0 0 0 transparent;
 
                 flex-direction: row;
 
@@ -282,7 +293,8 @@ import Logo from "./Logo.astro";
 
                     & li {
                         & .nav-link {
-                            padding: 1.6rem 2rem;
+                            padding: 1.7rem 2rem;
+                            align-self: stretch;
                         }
 
                         & #service-menu {

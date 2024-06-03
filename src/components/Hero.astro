@@ -1,0 +1,91 @@
+<div class="hero">
+    <picture>
+        <source
+            media="(min-width: 1440px)"
+            srcset="/full-print-web/images/hero-hq.webp"
+        />
+        <source
+            media="(min-width: 1024px)"
+            srcset="/full-print-web/images/hero-large.webp"
+        />
+        <source
+            media="(min-width: 768px)"
+            srcset="/full-print-web/images/hero-medium.webp"
+        />
+        <img
+            src="/full-print-web/images/hero-small.webp"
+            alt="Full Print store"
+            loading="lazy"
+        />
+    </picture>
+    <div class="background"></div>
+    <div class="content">
+        <h2>Entregando color a la Isla</h2>
+        <a href="/full-print-web/contact">¡Reserva YA!</a>
+    </div>
+</div>
+
+<style>
+    .hero {
+        grid-column: 1 / 4;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        & picture,
+        & .background,
+        & .content {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            width: 100%;
+            height: auto;
+        }
+
+        & picture {
+            z-index: -1;
+
+            & img {
+                width: 100%;
+            }
+        }
+
+        & .background {
+            background: linear-gradient(
+                var(--darkest-half-shadow-color) 55%,
+                transparent
+            );
+        }
+
+        & .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            gap: 1rem;
+
+            & h2 {
+                font-size: xx-large;
+                width: 12ch;
+                text-align: center;
+            }
+
+            & a {
+                font-weight: 500;
+
+                color: white;
+                background-color: orangered;
+                text-decoration: none;
+
+                padding: 1rem 2rem;
+
+                border-radius: 10rem;
+
+                &:hover {
+                    color: orangered;
+                    background-color: white;
+                }
+            }
+        }
+    }
+</style>

@@ -79,23 +79,55 @@ const { title } = Astro.props;
 		background-size: 224px;
 	}
 
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
 	body {
 		width: 100vw;
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 
 		color: white;
+	}
+
+	main {
+		grid-column: 1 / 4;
+		grid-row: 2 / 3;
+
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+	}
+
+	.action {
+		font-weight: 500;
+
+		text-decoration: none;
+
+		padding: 1rem 2rem;
+
+		border: 0;
+		border-radius: 5rem;
+
+		&.base {
+			color: white;
+			background-color: orangered;
+
+			&:hover {
+				color: orangered;
+				background-color: white;
+			}
+		}
+
+		&.wpp {
+			color: white;
+			background-color: darkgreen;
+
+			&:hover {
+				color: darkgreen;
+				background-color: white;
+			}
+		}
+
+		& i {
+			font-size: small;
+			margin-right: 0.25rem;
+		}
 	}
 </style>

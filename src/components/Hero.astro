@@ -21,7 +21,7 @@
     <div class="background"></div>
     <div class="content">
         <h2>Entregando color a la Isla</h2>
-        <a href="/full-print-web/contact">¡Reserva YA!</a>
+        <a href="/full-print-web/contact" class="action base">¡Reserva YA!</a>
     </div>
 </div>
 
@@ -46,6 +46,7 @@
 
             & img {
                 width: 100%;
+                filter: blur(2px);
             }
         }
 
@@ -68,23 +69,6 @@
                 font-size: xx-large;
                 width: 12ch;
                 text-align: center;
-            }
-
-            & a {
-                font-weight: 500;
-
-                color: white;
-                background-color: orangered;
-                text-decoration: none;
-
-                padding: 1rem 2rem;
-
-                border-radius: 10rem;
-
-                &:hover {
-                    color: orangered;
-                    background-color: white;
-                }
             }
         }
     }

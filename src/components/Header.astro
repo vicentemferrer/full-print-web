@@ -3,6 +3,12 @@ import Logo from "./Logo.astro";
 ---
 
 <header>
+    <section id="waves-top">
+        <img
+            src="/full-print-web/vectors/waves-top.svg"
+            alt="Brand Waves Top"
+        />
+    </section>
     <a href="/full-print-web/">
         <Logo type="header" />
     </a>
@@ -104,13 +110,9 @@ import Logo from "./Logo.astro";
         grid-column: 1 / 4;
         grid-row: 1 / 2;
 
+        position: relative;
+
         background-color: var(--primary-dark-color);
-        /* background: linear-gradient(
-            45deg,
-            var(--gradient-color-1) 24%,
-            var(--gradient-color-2) 41% 57%,
-            var(--gradient-color-3) 75%
-        ); */
 
         display: flex;
         align-items: center;
@@ -118,11 +120,26 @@ import Logo from "./Logo.astro";
 
         padding-inline: 1rem;
 
+        & > *:not(#waves-top) {
+            z-index: 1;
+        }
+
         & a {
             display: block;
             color: white;
             text-decoration: none;
         }
+    }
+
+    #waves-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
     }
 
     #menu {

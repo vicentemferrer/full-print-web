@@ -233,11 +233,6 @@ const currentYear = new Date().getFullYear().toString();
                         & address {
                             font-style: normal;
                         }
-
-                        & a {
-                            &:hover {
-                            }
-                        }
                     }
 
                     & article {
@@ -245,11 +240,9 @@ const currentYear = new Date().getFullYear().toString();
                         flex-direction: column;
                         gap: 0.5rem;
 
-                        &:not(.contact) {
-                            & a {
-                                &:hover {
-                                    text-decoration: underline;
-                                }
+                        & a {
+                            &:hover {
+                                color: var(--accent1-main-color);
                             }
                         }
                     }

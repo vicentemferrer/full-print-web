@@ -47,6 +47,8 @@ const { title, callToAction, action, method } = Astro.props;
 
 <style>
     form {
+        width: 100%;
+
         padding: 2rem 1.5rem;
 
         background-color: var(--primary-dark-color);
@@ -57,7 +59,7 @@ const { title, callToAction, action, method } = Astro.props;
         flex-direction: column;
         align-items: left;
 
-        gap: 1rem;
+        gap: 2rem;
 
         & label,
         & input,
@@ -70,8 +72,7 @@ const { title, callToAction, action, method } = Astro.props;
         & button {
             font-size: large;
             width: 100%;
-            max-width: 40rem;
-            min-width: 20rem;
+            max-width: 20rem;
         }
 
         & label {

@@ -33,7 +33,7 @@ import ContactForm from "../components/ContactForm.astro";
                 <a
                     href="https://wa.me/56950443336"
                     target="_blank"
-                    class="action wpp"
+                    class="action secondary"
                     ><i class="fi fi-brands-whatsapp"></i>Contactarnos por
                     WhatsApp</a
                 >
@@ -46,9 +46,9 @@ import ContactForm from "../components/ContactForm.astro";
     section {
         grid-column: 2 / 3;
 
-        padding-block: 1rem;
-
         width: 100%;
+
+        padding: 1rem 0.5rem;
 
         display: flex;
         flex-direction: column;
@@ -56,9 +56,9 @@ import ContactForm from "../components/ContactForm.astro";
     }
 
     .contact-fragment {
-        padding: 2rem 1.5rem;
+        width: 100%;
 
-        background-color: var(--primary-dark-color);
+        padding: 2rem 1.5rem;
 
         border-radius: 1rem;
 
@@ -66,13 +66,13 @@ import ContactForm from "../components/ContactForm.astro";
         flex-direction: column;
         align-items: center;
 
-        gap: 1rem;
+        gap: 2rem;
 
         & iframe,
-        & hr {
+        & hr,
+        & p {
             width: 100%;
-            max-width: 40rem;
-            min-width: 20rem;
+            max-width: 20rem;
         }
 
         & iframe {
@@ -86,8 +86,6 @@ import ContactForm from "../components/ContactForm.astro";
 
         & p {
             font-size: large;
-
-            width: 30ch;
 
             text-align: center;
 
@@ -104,12 +102,12 @@ import ContactForm from "../components/ContactForm.astro";
             grid-template-columns: auto 1fr 1fr auto;
         }
 
-        section:first-child {
-            grid-column: 2 / 3;
-        }
+        section {
+            padding: 2rem;
 
-        section:last-child {
-            grid-column: 3 / 4;
+            &:last-child {
+                grid-column: 3 / 4;
+            }
         }
     }
 </style>

@@ -112,7 +112,7 @@ import Logo from "./Logo.astro";
 
         position: relative;
 
-        background-color: var(--primary-dark-color);
+        background-color: var(--main-background-color);
 
         display: flex;
         align-items: center;
@@ -126,8 +126,6 @@ import Logo from "./Logo.astro";
 
         & a {
             display: block;
-            color: white;
-            text-decoration: none;
         }
     }
 
@@ -164,7 +162,7 @@ import Logo from "./Logo.astro";
             transform: translateX(-100vw);
 
             & .nav-fragment {
-                box-shadow: 0 0 0 100vmax var(--darkest-half-shadow-color);
+                box-shadow: 0 0 0 100vmax var(--shadow-background-color);
             }
         }
 
@@ -177,7 +175,7 @@ import Logo from "./Logo.astro";
 
             padding-top: 4rem;
 
-            background-color: var(--primary-dark-color);
+            background-color: var(--main-background-color);
             box-shadow: 0 0 0 0 transparent;
             transition: box-shadow 250ms linear;
 
@@ -210,12 +208,15 @@ import Logo from "./Logo.astro";
                     & .nav-link {
                         font-weight: 600;
 
+                        text-shadow: 1px 1px 3px
+                            var(--darkest-full-shadow-color);
+
                         padding: 0.75rem 2.5rem;
                         transition: background-color ease-in-out 200ms;
 
                         &:hover {
-                            text-shadow: 1px 1px 3px
-                                var(--darkest-full-shadow-color);
+                            color: var(--darkest-full-shadow-color);
+                            text-shadow: 1px 1px 3px white;
                         }
                     }
 
@@ -317,7 +318,7 @@ import Logo from "./Logo.astro";
                         & #service-menu {
                             position: absolute;
 
-                            background-color: var(--primary-dark-color);
+                            background-color: var(--main-background-color);
 
                             & li {
                                 width: auto;

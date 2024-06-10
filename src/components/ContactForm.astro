@@ -51,7 +51,7 @@ const { title, callToAction, action, method } = Astro.props;
 
         padding: 2rem 1.5rem;
 
-        background-color: var(--primary-dark-color);
+        background-color: var(--form-background-color);
 
         border-radius: 1rem;
 
@@ -80,8 +80,8 @@ const { title, callToAction, action, method } = Astro.props;
 
             & input,
             & textarea {
-                color: white;
-                background-color: var(--darkest-full-shadow-color);
+                color: var(--text-on-color);
+                background-color: var(--input-background-color);
 
                 border-radius: 0.25rem;
                 border: 1px solid transparent;

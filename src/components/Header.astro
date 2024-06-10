@@ -194,30 +194,36 @@ import Logo from "./Logo.astro";
                     position: relative;
 
                     &:nth-child(1) .nav-link:hover {
-                        background-color: var(--accent2-light-color);
+                        background: linear-gradient(
+                            var(--home-gradient1-color),
+                            var(--home-gradient2-color),
+                            var(--home-gradient3-color)
+                        );
                     }
 
                     &:nth-child(2) .nav-link:hover {
-                        background-color: var(--accent3-light-color);
+                        background: linear-gradient(
+                            var(--services-gradient1-color),
+                            var(--services-gradient2-color),
+                            var(--services-gradient3-color)
+                        );
                     }
 
                     &:nth-child(3) .nav-link:hover {
-                        background-color: var(--accent1-light-color);
+                        background: linear-gradient(
+                            var(--products-gradient1-color),
+                            var(--products-gradient2-color),
+                            var(--products-gradient3-color)
+                        );
                     }
 
                     & .nav-link {
                         font-weight: 600;
 
-                        text-shadow: 1px 1px 3px
-                            var(--darkest-full-shadow-color);
+                        text-shadow: 1px 1px 3px var(--link-shadow-color);
 
                         padding: 0.75rem 2.5rem;
                         transition: background-color ease-in-out 200ms;
-
-                        &:hover {
-                            color: var(--darkest-full-shadow-color);
-                            text-shadow: 1px 1px 3px white;
-                        }
                     }
 
                     & #service-menu {
@@ -260,7 +266,7 @@ import Logo from "./Logo.astro";
                     padding: 0.75rem 2rem;
 
                     &:hover {
-                        color: var(--accent1-main-color);
+                        color: var(--link-help-hover-color);
                     }
                 }
             }

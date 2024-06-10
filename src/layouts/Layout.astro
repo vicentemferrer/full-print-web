@@ -69,15 +69,34 @@ const { title } = Astro.props;
 		--main-background-color: var(--dark-primary-color);
 		--shadow-background-color: var(--dark-shadow-color);
 
-		/* Links */
+		--form-background-color: var(--dark-primary-color);
+		--input-background-color: var(--dark-accent-color);
+
+		/* Links & Buttons */
 		--link-color: var(--text-on-color);
-		--link-hover-color: transparent;
+		--button-hover-color: transparent;
 
 		--link-fb-hover-color: steelblue;
 		--link-ig-hover-color: #dd2a7b;
 		--link-wp-hover-color: #25d366;
 
 		--link-ft-hover-color: var(--accent1-main-color);
+		--link-help-hover-color: var(--accent1-main-color);
+
+		--link-shadow-color: var(--dark-accent-color);
+
+		/* Nav links Gradients */
+		--home-gradient1-color: var(--accent2-dark-color);
+		--home-gradient2-color: var(--accent2-main-color);
+		--home-gradient3-color: var(--accent2-light-color);
+
+		--services-gradient1-color: var(--accent3-dark-color);
+		--services-gradient2-color: var(--accent3-main-color);
+		--services-gradient3-color: var(--accent3-light-color);
+
+		--products-gradient1-color: var(--accent1-dark-color);
+		--products-gradient2-color: var(--accent1-main-color);
+		--products-gradient3-color: var(--accent1-light-color);
 
 		/* Button Gradients */
 		--premium-gradient1-color: var(--accent4-gold3-color);
@@ -93,11 +112,6 @@ const { title } = Astro.props;
 
 		--secondary-gradient1-color: var(--accent3-dark-color);
 		--secondary-gradient2-color: var(--accent3-light-color);
-
-		/* Legacy */
-		--primary-dark-color: #262626;
-		--darkest-full-shadow-color: #130c0d;
-		--darkest-half-shadow-color: #130c0d7f;
 	}
 
 	* {
@@ -130,14 +144,9 @@ const { title } = Astro.props;
 		grid-template-columns: auto 1fr auto;
 	}
 
-	a,
-	button {
+	a {
 		color: var(--link-color);
 		text-decoration: none;
-
-		&:hover {
-			color: var(--link-hover-color);
-		}
 	}
 
 	.action {
@@ -151,8 +160,14 @@ const { title } = Astro.props;
 		border: 2px solid transparent;
 		border-radius: 5rem;
 
+		color: var(--link-color);
+
+		&:hover {
+			color: var(--button-hover-color);
+		}
+
 		&.premium {
-			color: var(--link-hover-color);
+			color: var(--button-hover-color);
 
 			background:
 				linear-gradient(

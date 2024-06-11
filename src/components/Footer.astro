@@ -1,7 +1,127 @@
 ---
 import Logo from "./Logo.astro";
+import FooterLink from "./FooterLink.astro";
 
 const currentYear = new Date().getFullYear().toString();
+
+const servicesLinks = [
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "services/docs",
+        content: "Impresión de Documentos",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "services/pictures",
+        content: "Impresión de Imágenes",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "services/marketing",
+        content: "Herramientas de Publicidad",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "services/design",
+        content: "Diseño Gráfico",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "services/miscelaneous",
+        content: "Otros Servicios",
+    },
+];
+
+const helpLinks = [
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "about",
+        content: "¿Quiénes somos?",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "how-to-buy",
+        content: "¿Cómo comprar?",
+    },
+    {
+        icon: {
+            itHas: false,
+        },
+        url: "contact",
+        content: "Contáctanos",
+    },
+];
+
+const contactLinks = [
+    {
+        icon: {
+            itHas: true,
+            variant: "br",
+            suffix: "phone-call",
+        },
+        url: "tel:56950443336",
+        content: "+569 5044 3336",
+    },
+    {
+        icon: {
+            itHas: true,
+            variant: "br",
+            suffix: "envelope",
+        },
+        url: "mailto:fullprint.chiloe@gmail.com",
+        content: "fullprint.chiloe@gmail.com",
+    },
+    {
+        icon: {
+            itHas: true,
+            variant: "br",
+            suffix: "marker",
+        },
+        url: "https://maps.app.goo.gl/E2bgyVkRNTVgx9eK6",
+        content: "Chacabuco 797, Ancud",
+    },
+];
+
+const socialLinks = [
+    {
+        icon: {
+            itHas: true,
+            variant: "brands",
+            suffix: "facebook",
+        },
+        url: "https://www.facebook.com/fullprint.chiloe/",
+    },
+    {
+        icon: {
+            itHas: true,
+            variant: "brands",
+            suffix: "instagram",
+        },
+        url: "https://www.instagram.com/fullprint.chiloe/",
+    },
+    {
+        icon: {
+            itHas: true,
+            variant: "brands",
+            suffix: "whatsapp",
+        },
+        url: "https://wa.me/56950443336",
+    },
+];
 ---
 
 <footer>
@@ -18,68 +138,50 @@ const currentYear = new Date().getFullYear().toString();
         <article class="xtra-nav">
             <h4>Servicios</h4>
             <ul>
-                <li>
-                    <a href="/full-print-web/services/docs"
-                        >Impresión de Documentos</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/pictures"
-                        >Impresión de Imágenes</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/marketing"
-                        >Herramientas de Publicidad</a
-                    >
-                </li>
-                <li>
-                    <a href="/full-print-web/services/design">Diseño Gráfico</a>
-                </li>
-                <li>
-                    <a href="/full-print-web/services/miscelaneous"
-                        >Otros Servicios</a
-                    >
-                </li>
+                {
+                    servicesLinks.map(({ icon, url, content }) => (
+                        <li>
+                            <FooterLink
+                                icon={icon}
+                                url={`/full-print-web/${url}`}
+                            >
+                                {content}
+                            </FooterLink>
+                        </li>
+                    ))
+                }
             </ul>
         </article>
         <article class="about">
             <h4>Información</h4>
             <ul>
-                <li>
-                    <a href="/full-print-web/about">¿Quiénes somos?</a>
-                </li>
-                <li>
-                    <a href="/full-print-web/how-to-buy">¿Cómo comprar?</a>
-                </li>
-                <li>
-                    <a href="/full-print-web/contact">Contáctanos</a>
-                </li>
+                {
+                    helpLinks.map(({ icon, url, content }) => (
+                        <li>
+                            <FooterLink
+                                icon={icon}
+                                url={`/full-print-web/${url}`}
+                            >
+                                {content}
+                            </FooterLink>
+                        </li>
+                    ))
+                }
             </ul>
         </article>
         <article class="contact">
             <h4>Contacto</h4>
             <address>
                 <ul>
-                    <li>
-                        <a href="tel:56950443336" target="_blank"
-                            ><i class="fi fi-br-phone-call"></i> +569 5044 3336</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="mailto:fullprint.chiloe@gmail.com"
-                            target="_blank"
-                            ><i class="fi fi-br-envelope"></i> fullprint.chiloe@gmail.com</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="https://maps.app.goo.gl/E2bgyVkRNTVgx9eK6"
-                            target="_blank"
-                            ><i class="fi fi-br-marker"></i> Chacabuco 797, Ancud</a
-                        >
-                    </li>
+                    {
+                        contactLinks.map(({ icon, url, content }) => (
+                            <li>
+                                <FooterLink icon={icon} url={url}>
+                                    {` ${content}`}
+                                </FooterLink>
+                            </li>
+                        ))
+                    }
                 </ul>
             </address>
         </article>
@@ -92,16 +194,11 @@ const currentYear = new Date().getFullYear().toString();
             </p>
         </article>
         <article class="social">
-            <a href="https://www.facebook.com/fullprint.chiloe/" target="_blank"
-                ><i class="fi fi-brands-facebook"></i></a
-            >
-            <a
-                href="https://www.instagram.com/fullprint.chiloe/"
-                target="_blank"><i class="fi fi-brands-instagram"></i></a
-            >
-            <a href="https://wa.me/56950443336" target="_blank"
-                ><i class="fi fi-brands-whatsapp"></i></a
-            >
+            {
+                socialLinks.map(({ icon, url }) => (
+                    <FooterLink icon={icon} url={url} />
+                ))
+            }
         </article>
     </section>
 </footer>
@@ -160,26 +257,6 @@ const currentYear = new Date().getFullYear().toString();
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-
-                    & a {
-                        display: block;
-
-                        & i {
-                            font-size: 1.5rem;
-                        }
-
-                        &:nth-child(1):hover {
-                            color: var(--link-fb-hover-color);
-                        }
-
-                        &:nth-child(2):hover {
-                            color: var(--link-ig-hover-color);
-                        }
-
-                        &:nth-child(3):hover {
-                            color: var(--link-wp-hover-color);
-                        }
-                    }
                 }
             }
         }
@@ -234,28 +311,22 @@ const currentYear = new Date().getFullYear().toString();
                         display: flex;
                         flex-direction: column;
                         gap: 0.5rem;
-
-                        & a {
-                            &:hover {
-                                color: var(--link-ft-hover-color);
-                            }
-                        }
                     }
                 }
 
                 &.credits {
                     flex-direction: row;
 
-                    padding-inline: 1.5rem;
+                    padding-inline: 3vw;
 
                     & .social {
-                        width: 12vw;
+                        width: 18vw;
 
-                        & a {
-                            & i {
-                                font-size: 1.25rem;
-                            }
-                        }
+                        padding: 0.5rem 1rem;
+
+                        background-color: var(--social-background-color);
+                        border: 1px solid white;
+                        border-radius: 2rem;
                     }
                 }
             }
@@ -272,12 +343,46 @@ const currentYear = new Date().getFullYear().toString();
                 }
 
                 &.credits {
-                    padding-inline: 3rem;
+                    padding-inline: 5vw;
 
                     & .social {
-                        width: 10vw;
+                        width: 13vw;
+                    }
+                }
+            }
+        }
+    }
 
-                        gap: 2rem;
+    @media (1247px < width) {
+        footer {
+            & .row {
+                &.credits {
+                    & .social {
+                        width: 10vw;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (1439px < width) {
+        footer {
+            & .row {
+                &.credits {
+                    padding-inline: 6vw;
+                }
+            }
+        }
+    }
+
+    @media (2559px < width) {
+        footer {
+            & .row {
+                &.credits {
+                    padding-inline: 8vw;
+
+                    & .social {
+                        width: 7vw;
                     }
                 }
             }

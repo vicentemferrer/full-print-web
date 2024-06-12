@@ -279,4 +279,14 @@ const { title } = Astro.props;
 			margin-right: 0.25rem;
 		}
 	}
+
+	@media (767px < width) {
+		.text-badge {
+			padding: 0.5rem 1rem;
+
+			background-color: var(--social-background-color);
+			border: 1px solid white;
+			border-radius: 2rem;
+		}
+	}
 </style>

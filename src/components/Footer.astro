@@ -187,13 +187,13 @@ const socialLinks = [
         </article>
     </section>
     <section class="row credits">
-        <article>
+        <article class="text-badge">
             <p>
                 <i class="fi fi-br-copyright"></i>{currentYear} Full Print | Desarrollado
                 por Vicente Ferrer
             </p>
         </article>
-        <article class="social">
+        <article class="social text-badge">
             {
                 socialLinks.map(({ icon, url }) => (
                     <FooterLink icon={icon} url={url} />
@@ -321,12 +321,6 @@ const socialLinks = [
 
                     & .social {
                         width: 18vw;
-
-                        padding: 0.5rem 1rem;
-
-                        background-color: var(--social-background-color);
-                        border: 1px solid white;
-                        border-radius: 2rem;
                     }
                 }
             }

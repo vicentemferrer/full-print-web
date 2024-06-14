@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Main from "../../layouts/Main.astro";
 
 export function getStaticPaths() {
     return [
@@ -12,8 +12,18 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.params;
+
+const servicesTitles = {
+    docs: "Impresión de Documentos",
+    pictures: "Impresión de Imágenes",
+    marketing: "Herramientas de Publicidad",
+    design: "Diseño Gráfico",
+    miscelaneous: "Otros Servicios",
+};
+
+const title = servicesTitles[service];
 ---
 
-<Layout title="Servicios">
+<Main title={title}>
     <div></div>
-</Layout>
+</Main>

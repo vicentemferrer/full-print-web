@@ -1,12 +1,42 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Home from "../layouts/Home.astro";
 import Hero from "../components/Hero.astro";
+import Slider from "../components/Slider.astro";
+
+const servicesLinks = [
+	{
+		icon: "document",
+		title: "Impresión de Documentos",
+		url: "services/docs",
+	},
+	{
+		icon: "picture",
+		title: "Impresión de Imágenes",
+		url: "services/pictures",
+	},
+	{
+		icon: "lightbulb-on",
+		title: "Herramientas de Publicidad",
+		url: "services/marketing",
+	},
+	{
+		icon: "customize-edit",
+		title: "Diseño Gráfico",
+		url: "services/design",
+	},
+	{
+		icon: "square-plus",
+		title: "Otros Servicios",
+		url: "services/miscelaneous",
+	},
+];
 ---
 
-<Layout title="Inicio">
+<Home title="Inicio">
 	<main>
 		<Hero />
+		<!-- <Slider anchors={servicesLinks} /> -->
 	</main>
-</Layout>
+</Home>
 
 <style></style>

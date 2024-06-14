@@ -1,0 +1,43 @@
+---
+import SlideCard from "./SlideCard.astro";
+
+const { anchors } = Astro.props;
+---
+
+<section class="glide">
+    <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+            {
+                anchors.map(({ icon, title, url }) => (
+                    <li class="glide__slide">
+                        <SlideCard icon={icon} title={title} url={url} />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
+            >prev</button
+        >
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
+            >next</button
+        >
+    </div>
+</section>
+
+<script>
+    new Glide(".glide", {
+        type: "carousel",
+        startAt: 0,
+        perView: 3,
+    }).mount();
+</script>
+
+<style>
+    section {
+        grid-column: 2 / 3;
+        width: 100%;
+    }
+</style>

@@ -4,7 +4,7 @@ import FooterLink from "./FooterLink.astro";
 
 const currentYear = new Date().getFullYear().toString();
 
-const servicesLinks = [
+const servicesList = [
     {
         icon: {
             itHas: false,
@@ -42,7 +42,7 @@ const servicesLinks = [
     },
 ];
 
-const helpLinks = [
+const helpList = [
     {
         icon: {
             itHas: false,
@@ -66,7 +66,7 @@ const helpLinks = [
     },
 ];
 
-const contactLinks = [
+const contactList = [
     {
         icon: {
             itHas: true,
@@ -96,7 +96,7 @@ const contactLinks = [
     },
 ];
 
-const socialLinks = [
+const socialList = [
     {
         icon: {
             itHas: true,
@@ -139,7 +139,7 @@ const socialLinks = [
             <h4>Servicios</h4>
             <ul>
                 {
-                    servicesLinks.map(({ icon, url, content }) => (
+                    servicesList.map(({ icon, url, content }) => (
                         <li>
                             <FooterLink
                                 icon={icon}
@@ -156,7 +156,7 @@ const socialLinks = [
             <h4>Información</h4>
             <ul>
                 {
-                    helpLinks.map(({ icon, url, content }) => (
+                    helpList.map(({ icon, url, content }) => (
                         <li>
                             <FooterLink
                                 icon={icon}
@@ -174,7 +174,7 @@ const socialLinks = [
             <address>
                 <ul>
                     {
-                        contactLinks.map(({ icon, url, content }) => (
+                        contactList.map(({ icon, url, content }) => (
                             <li>
                                 <FooterLink icon={icon} url={url}>
                                     {` ${content}`}
@@ -195,7 +195,7 @@ const socialLinks = [
         </article>
         <article class="social text-badge">
             {
-                socialLinks.map(({ icon, url }) => (
+                socialList.map(({ icon, url }) => (
                     <FooterLink icon={icon} url={url} />
                 ))
             }

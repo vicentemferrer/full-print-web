@@ -1,5 +1,6 @@
 ---
 import Main from "../../layouts/Main.astro";
+import SERVICES from "../../data/services.json";
 
 export function getStaticPaths() {
     return [
@@ -13,15 +14,32 @@ export function getStaticPaths() {
 
 const { service } = Astro.params;
 
-const servicesTitles = {
-    docs: "Impresión de Documentos",
-    pictures: "Impresión de Imágenes",
-    marketing: "Herramientas de Publicidad",
-    design: "Diseño Gráfico",
-    miscelaneous: "Otros Servicios",
+const servicesCategories = {
+    docs: {
+        code: "docs",
+        title: "Impresión de Documentos",
+    },
+    pictures: {
+        code: "pict",
+        title: "Impresión de Imágenes",
+    },
+    marketing: {
+        code: "mktg",
+        title: "Herramientas de Publicidad",
+    },
+    design: {
+        code: "dsgn",
+        title: "Diseño Gráfico",
+    },
+    miscelaneous: {
+        code: "misc",
+        title: "Otros Servicios",
+    },
 };
 
-const title = servicesTitles[service];
+const { code, title } = servicesCategories[service];
+
+const serviceContent = SERVICES.filter(({ category }) => category === code);
 ---
 
 <Main title={title}>

@@ -1,9 +1,12 @@
 ---
-import Home from "../layouts/Home.astro";
-import Hero from "../components/Hero.astro";
-import Slider from "../components/Slider.astro";
+import type { ServiceLink } from "../data/types";
 
-const servicesLinks = [
+import Main from "../layouts/Main.astro";
+
+import Hero from "../components/Hero.astro";
+import ServiceSlider from "../components/ServiceSlider.tsx";
+
+const servicesLinks: ServiceLink[] = [
 	{
 		icon: "document",
 		title: "Impresión de Documentos",
@@ -32,11 +35,12 @@ const servicesLinks = [
 ];
 ---
 
-<Home title="Inicio">
+<Main>
 	<main>
 		<Hero />
-		<!-- <Slider anchors={servicesLinks} /> -->
+
+		<ServiceSlider anchors={servicesLinks} client:only="react" />
 	</main>
-</Home>
+</Main>
 
 <style></style>

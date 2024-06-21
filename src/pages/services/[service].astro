@@ -17,31 +17,31 @@ const { service } = Astro.params;
 const servicesCategories = {
     docs: {
         code: "docs",
-        title: "Impresión de Documentos",
+        subtitle: "Impresión de Documentos",
     },
     pictures: {
         code: "pict",
-        title: "Impresión de Imágenes",
+        subtitle: "Impresión de Imágenes",
     },
     marketing: {
         code: "mktg",
-        title: "Herramientas de Publicidad",
+        subtitle: "Herramientas de Publicidad",
     },
     design: {
         code: "dsgn",
-        title: "Diseño Gráfico",
+        subtitle: "Diseño Gráfico",
     },
     miscelaneous: {
         code: "misc",
-        title: "Otros Servicios",
+        subtitle: "Otros Servicios",
     },
 };
 
-const { code, title } = servicesCategories[service];
+const { code, subtitle } = servicesCategories[service];
 
 const serviceContent = SERVICES.filter(({ category }) => category === code);
 ---
 
-<Main title={title}>
+<Main {subtitle}>
     <div></div>
 </Main>

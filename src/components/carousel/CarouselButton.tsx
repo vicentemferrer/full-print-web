@@ -11,12 +11,13 @@ const iconStyles = {
 }
 
 type Props = {
-    btnType: btnTypes
+    btnType: btnTypes,
+    handleClick: (isPrev: boolean) => void
 }
 
-function CarouselButton({ btnType }: Props) {
+function CarouselButton({ btnType, handleClick }: Props) {
     return (
-        <button className={`carousel-arrow carousel-${btnType}`} data-button={`button-${btnType}`}>
+        <button className={`carousel-arrow carousel-${btnType}`} data-button={`button-${btnType}`} onClick={() => handleClick(btnType === btnTypes.Prev)}>
             <i className={`fi fi-br-angle-small-${iconStyles[btnType]}`}></i>
         </button>
     )

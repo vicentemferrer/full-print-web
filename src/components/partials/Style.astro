@@ -69,6 +69,10 @@
 
         --secondary-gradient1-color: var(--accent3-dark-color);
         --secondary-gradient2-color: var(--accent3-light-color);
+
+        /* Carousel Arrows Gradients */
+        --carousel-gradient1-color: var(--dark-accent-color);
+        --carousel-gradient2-color: transparent;
     }
 
     *,
@@ -93,11 +97,16 @@
         color: var(--text-on-color);
     }
 
+    header,
+    main,
+    footer {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
     main {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-
-        width: 100%;
 
         display: grid;
         grid-template-columns: auto 1fr auto;

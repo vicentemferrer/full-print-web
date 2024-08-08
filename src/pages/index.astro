@@ -4,7 +4,7 @@ import type { ServiceLink } from "../data/types";
 import Main from "../layouts/Main.astro";
 
 import Hero from "../components/Hero.astro";
-import ServiceSlider from "../components/ServiceSlider.tsx";
+import ServiceCarousel from "../components/ServiceCarousel.tsx";
 
 const servicesLinks: ServiceLink[] = [
 	{
@@ -39,7 +39,7 @@ const servicesLinks: ServiceLink[] = [
 	<main>
 		<Hero />
 
-		<ServiceSlider anchors={servicesLinks} client:visible />
+		<ServiceCarousel anchors={servicesLinks} client:visible />
 	</main>
 </Main>
 

@@ -5,12 +5,9 @@
 }
 
 .carousel {
-    grid-column: 2 / 3;
-    justify-self: center;
-
     position: relative;
 
-    width: 80vw;
+    width: 90vw;
     justify-content: center;
 }
 

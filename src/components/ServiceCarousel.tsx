@@ -1,7 +1,9 @@
-import type { ServiceLink } from "../data/types";
+import type { ServiceLink } from "../data/types.ts";
 
 import Carousel from "./carousel/Carousel.tsx";
 import ServiceCard from "./ServiceCard.tsx";
+
+import "./ServiceCarousel.css"
 
 type Props = {
     anchors: ServiceLink[]

@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-import CarouselButton, { btnTypes } from "./CarouselButton.tsx"
+import CarouselButton, { btnTypes } from "@components/carousel/CarouselButton.tsx"
 import "./Carousel.css"
 
 function Carousel({ children }) {

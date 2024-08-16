@@ -1,45 +1,49 @@
 ---
+import { getCollection } from "astro:content";
 import Main from "@layouts/Main.astro";
-import SERVICES from "../../data/services.json";
+// import SERVICES from "../../data/services.json";
 
-export function getStaticPaths() {
-    return [
-        { params: { service: "docs" } },
-        { params: { service: "pictures" } },
-        { params: { service: "marketing" } },
-        { params: { service: "design" } },
-        { params: { service: "miscelaneous" } },
-    ];
+export async function getStaticPaths() {
+    const allServicesList = await getCollection("services");
+
+    const categories = new Set<string>(
+        allServicesList.map(({ data: { category } }) => category),
+    );
+
+    const subtitles = {
+        documents: "Impresión de Documentos",
+        pictures: "Impresión de Imágenes",
+        marketing: "Herramientas de Publicidad",
+        design: "Diseño Gráfico",
+        miscelaneous: "Otros Servicios",
+    };
+
+    const paths = [];
+
+    categories.forEach((service) => {
+        paths.push({
+            params: {
+                service,
+            },
+            props: {
+                subtitle: subtitles[service],
+                servicesByCategory: allServicesList.filter(
+                    ({ data: { category } }) => category === service,
+                ),
+            },
+        });
+    });
+
+    return paths;
 }
 
-const { service } = Astro.params;
+// const { service } = Astro.params;
 
-const servicesCategories = {
-    docs: {
-        code: "docs",
-        subtitle: "Impresión de Documentos",
-    },
-    pictures: {
-        code: "pict",
-        subtitle: "Impresión de Imágenes",
-    },
-    marketing: {
-        code: "mktg",
-        subtitle: "Herramientas de Publicidad",
-    },
-    design: {
-        code: "dsgn",
-        subtitle: "Diseño Gráfico",
-    },
-    miscelaneous: {
-        code: "misc",
-        subtitle: "Otros Servicios",
-    },
-};
+// const { code, subtitle } = servicesCategories[service];
 
-const { code, subtitle } = servicesCategories[service];
+// const serviceContent = SERVICES.filter(({ category }) => category === code);
 
-const serviceContent = SERVICES.filter(({ category }) => category === code);
+const { subtitle, servicesByCategory } = Astro.props;
 ---
 
 <Main {subtitle}>
